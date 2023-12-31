@@ -15,6 +15,21 @@ const Table = ({ expenses, calculateRemainingAmount, openEditModal, deleteExpens
         });
     };
 
+    const handleFileDelete = (index) => {
+        // Update the file array to remove the file at the specified index
+        setFiles((prevFiles) => {
+          const newFiles = [...prevFiles];
+          newFiles[index] = null;
+          return newFiles;
+        });
+      
+        // Reset the input value
+        const fileInput = document.getElementById(`file-${index}`);
+        if (fileInput) {
+          fileInput.value = "";
+        }
+    };      
+
     return (
         <section className="overflow-x-auto animate__animated animate__fadeInUp">
             <table className="w-full table-auto">
@@ -53,7 +68,7 @@ const Table = ({ expenses, calculateRemainingAmount, openEditModal, deleteExpens
                                     type="file"
                                     name={`file-0`}
                                     id={`file-0`}
-                                    className="custom-file-input"
+                                    className="custom-file-input border"
                                     onChange={(event) => handleFileChange(0, event)}
                                 />
                             </div>
@@ -101,18 +116,24 @@ const Table = ({ expenses, calculateRemainingAmount, openEditModal, deleteExpens
                                     type="file"
                                     name={`file-${index + 1}`}
                                     id={`file-${index + 1}`}
-                                    className="custom-file-input cursor-pointer"
+                                    className="custom-file-input cursor-pointer border"
                                     onChange={(event) => handleFileChange(index + 1, event)}
                                 />
                                 </div>
                                 {files[index + 1] && (
-                                    <div className="flex gap-2 mt-4">
+                                    <div className="flex gap-2 mt-4 animate__animated animate__zoomIn">
                                         <a href={URL.createObjectURL(files[index + 1])} target="_blank" rel="noopener noreferrer" className="text-purple-600 bg-purple-100 hover:bg-purple-600 hover:text-white p-2">
                                             View
                                         </a>
                                         <a href={URL.createObjectURL(files[index + 1])} download={`FileName-${index + 1}.pdf`} target="_blank" rel="noopener noreferrer" className="text-purple-600 bg-purple-100 hover:bg-purple-600 hover:text-white p-2">
                                             Download
                                         </a>
+                                        <button
+                                            onClick={() => handleFileDelete(index + 1)}
+                                            className="text-purple-600 bg-purple-100 hover:bg-purple-600 hover:text-white p-2"
+                                        >
+                                            Delete
+                                        </button>
                                     </div>
                                 )}
                             </td>

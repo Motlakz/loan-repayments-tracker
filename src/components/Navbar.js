@@ -24,9 +24,7 @@ const Navbar = () => {
         <li className='p-2 hover:bg-purple-400'>
           <a href="/blog" className="text-white">Blog</a>
         </li>
-        <button id="dropdownDefaultButton" data-dropdown-toggle="dropdown" className="text-white bg-purple-200 hover:bg-purple-300 focus:ring-4 focus:outline-none focus:ring-purple-700 font-medium rounded-lg px-5 py-2.5 text-center inline-flex items-center dark:bg-purple-600 dark:hover:bg-purple-700 dark:focus:ring-purple-800" type="button">Expense Types <svg className="w-2.5 h-2.5 ms-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 10 6">
-          <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 1 4 4 4-4"/>
-          </svg>
+        <button id="dropdownDefaultButton" data-dropdown-toggle="dropdown" className="text-white bg-purple-200 hover:bg-purple-300 focus:ring-4 focus:outline-none focus:ring-purple-700 font-medium rounded-lg px-5 py-2.5 text-center inline-flex items-center dark:bg-purple-600 dark:hover:bg-purple-700 dark:focus:ring-purple-800" type="button">Expense Types <span className="icon ml-2"><i class="bi bi-chevron-down"></i></span>
         </button>
         <div id="dropdown" className="z-10 hidden bg-white divide-y divide-gray-100 rounded-lg shadow w-44 dark:bg-gray-700">
           <ul className="text-center py-2 text-gray-700 dark:text-gray-200" aria-labelledby="dropdownDefaultButton">
@@ -43,9 +41,7 @@ const Navbar = () => {
         </div>
       </ul>
 
-      <button id="dropdownDividerButton" data-dropdown-toggle="dropdownDivider" class="text-white bg-purple-200 hover:bg-purple-300 focus:ring-4 focus:outline-none focus:ring-purple-700 font-medium rounded-lg px-5 py-2.5 text-center inline-flex items-center dark:bg-purple-600 dark:hover:bg-purple-700 dark:focus:ring-purple-800" type="button">Profile <svg class="w-2.5 h-2.5 ms-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 10 6">
-        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 1 4 4 4-4"/>
-        </svg></button>
+      <button id="dropdownDividerButton" data-dropdown-toggle="dropdownDivider" class="text-white bg-purple-200 hover:bg-purple-300 focus:ring-4 focus:outline-none focus:ring-purple-700 font-medium rounded-lg px-5 py-2.5 text-center inline-flex items-center dark:bg-purple-600 dark:hover:bg-purple-700 dark:focus:ring-purple-800" type="button">Profile <span className="icon ml-2"><i class="bi bi-chevron-down"></i></span></button>
         <div id="dropdownDivider" class="z-10 hidden bg-white divide-y divide-gray-100 rounded-lg shadow w-44 dark:bg-gray-700 dark:divide-gray-600">
           <ul class="text-center py-2 text-gray-700 dark:text-gray-200" aria-labelledby="dropdownDividerButton">
             <li>
