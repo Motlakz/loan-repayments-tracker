@@ -3,113 +3,108 @@ import Form from "./Form";
 import Table from "./Table";
 import FlashMessage from "./FlashMessage";
 import DeleteModal from "./DeleteModal";
+import EditModal from "./EditModal";
 
 const ExpenseTracker = () => {
-  const [expenses, setExpenses] = useState([]);
-  const [newExpense, setNewExpense] = useState("");
-  const [newInitialAmount, setNewInitialAmount] = useState("");
-  const [newAmountReduced, setNewAmountReduced] = useState("");
-  const [newDeductionDate, setNewDeductionDate] = useState("");
-  const [newAnnualInterestRate, setNewAnnualInterestRate] = useState("");
-  const [editIndex, setEditIndex] = useState(null);
-  const [flashMessage, setFlashMessage] = useState(null);
-  const [showDeleteModal, setShowDeleteModal] = useState(false);
-  const [validation, setValidation] = useState({
-    expense: true,
-    initialAmount: true,
-    amountReduced: true,
-    deductionDate: true,
-    annualInterestRate: true,
-  });
+    const [showEditModal, setShowEditModal] = useState(false);
+    const [expenses, setExpenses] = useState(() => {
+        // Retrieve expenses from localStorage on component mount
+        const storedExpenses = localStorage.getItem("expenses");
+        return storedExpenses ? JSON.parse(storedExpenses) : [];
+    });
+    const [newExpense, setNewExpense] = useState("");
+    const [newInitialAmount, setNewInitialAmount] = useState("");
+    const [newAmountReduced, setNewAmountReduced] = useState("");
+    const [newDeductionDate, setNewDeductionDate] = useState("");
+    const [newAnnualInterestRate, setNewAnnualInterestRate] = useState("");
+    const [editIndex, setEditIndex] = useState(null);
+    const [flashMessage, setFlashMessage] = useState(null);
+    const [showDeleteModal, setShowDeleteModal] = useState(false);
+    const [validation, setValidation] = useState({
+        expense: true,
+        initialAmount: true,
+        amountReduced: true,
+        deductionDate: true,
+        annualInterestRate: true,
+    });
 
-// Load expenses from local storage when the component mounts
-  useEffect(() => {
-    const storedExpenses = localStorage.getItem('expenses');
-    if (storedExpenses) {
-      setExpenses(JSON.parse(storedExpenses));
-    }
-  }, []); // Empty dependency array ensures the effect runs only once when the component mounts
+    useEffect(() => {
+        // Save expenses to localStorage whenever expenses state changes
+        localStorage.setItem("expenses", JSON.stringify(expenses));
+    }, [expenses]);
 
-  // Save expenses to local storage whenever they are updated
-  useEffect(() => {
-    localStorage.setItem('expenses', JSON.stringify(expenses));
-  }, [expenses]); // The effect runs whenever the expenses state changes
+    const handleInputChange = (field, value) => {
+        setValidation((prevValidation) => ({
+        ...prevValidation,
+        [field]: true,
+        }));
 
-  const handleInputChange = (field, value) => {
-    setValidation((prevValidation) => ({
-      ...prevValidation,
-      [field]: true,
-    }));
-
-    switch (field) {
-      case "expense":
-        setNewExpense(value);
-        break;
-      case "initialAmount":
-        setNewInitialAmount(value);
-        break;
-      case "amountReduced":
-        setNewAmountReduced(value);
-        break;
-      case "deductionDate":
-        setNewDeductionDate(value);
-        break;
-      case "annualInterestRate":
-        setNewAnnualInterestRate(value);
-        break;
-      default:
-        break;
-    }
-  };
-
-  const handleSubmit = (e) => {
-    e.preventDefault();
-
-    const areInputsValid =
-        newExpense.trim() !== "" &&
-        newInitialAmount.trim() !== "" &&
-        newAmountReduced.trim() !== "" &&
-        newDeductionDate.trim() !== "" &&
-        newAnnualInterestRate.trim() !== "";
-
-        if (areInputsValid) {
-        setValidation({
-            expense: true,
-            initialAmount: true,
-            amountReduced: true,
-            deductionDate: true,
-            annualInterestRate: true,
-        });
-        setFlashMessage(null);
-
-        if (editIndex === null) {
-            addExpense();
-        } else {
-            saveExpense();
+        switch (field) {
+        case "expense":
+            setNewExpense(value);
+            break;
+        case "initialAmount":
+            setNewInitialAmount(value);
+            break;
+        case "amountReduced":
+            setNewAmountReduced(value);
+            break;
+        case "deductionDate":
+            setNewDeductionDate(value);
+            break;
+        case "annualInterestRate":
+            setNewAnnualInterestRate(value);
+            break;
+        default:
+            break;
         }
-    }
-  };
+    };
+
+    const handleSubmit = (e) => {
+        e.preventDefault();
+
+        const areInputsValid =
+            newExpense.trim() !== "" &&
+            newInitialAmount.trim() !== "" &&
+            newAmountReduced.trim() !== "" &&
+            newDeductionDate.trim() !== "" &&
+            newAnnualInterestRate.trim() !== "";
+
+            if (areInputsValid) {
+            setValidation({
+                expense: true,
+                initialAmount: true,
+                amountReduced: true,
+                deductionDate: true,
+                annualInterestRate: true,
+            });
+
+            if (editIndex === null) {
+                addExpense();
+            } else {
+                saveExpense();
+            }
+        }
+    };
 
     const addExpense = () => {
         const areInputsValid = validateInputs();
-
         if (areInputsValid) {
-            const newExpenseItem = {
-                title: newExpense,
-                initialAmount: parseFloat(newInitialAmount),
-                amountReduced: parseFloat(newAmountReduced),
-                deductionDate: newDeductionDate,
-                annualInterestRate: parseFloat(newAnnualInterestRate),
-            };
-
-            const updatedExpenses = [...expenses, newExpenseItem];
-            saveExpensesToLocalStorage(updatedExpenses);
-
-            setExpenses(updatedExpenses);
-
+        setExpenses((prevExpenses) => [
+            ...prevExpenses,
+            {
+            title: newExpense,
+            initialAmount: parseFloat(newInitialAmount),
+            amountReduced: parseFloat(newAmountReduced),
+            deductionDate: newDeductionDate,
+            annualInterestRate: parseFloat(newAnnualInterestRate),
+            },
+        ]);
             clearForm();
             setFlashMessage({ type: 'success', message: 'Expense added successfully.' });
-            setTimeout(() => setFlashMessage(null), 2000);
+            setTimeout(() => {
+                setFlashMessage(null);
+            }, 1500);
         }
     };
 
@@ -122,7 +117,10 @@ const ExpenseTracker = () => {
             newAnnualInterestRate.trim() !== '';
 
         if (!areInputsValid) {
-            setFlashMessage({ type: 'error', message: 'Please fill in all fields.' });
+            setFlashMessage({ type: 'error', message: 'Please fill in all the required fields.' });
+            setTimeout(() => {
+                setFlashMessage(null);
+            }, 1500);
         }
 
         setValidation({
@@ -136,48 +134,53 @@ const ExpenseTracker = () => {
         return areInputsValid;
     };
 
-    const editExpense = (index) => {
+    const openEditModal = (index) => {
+        // Set the state variables with the details of the expense to be edited
+        const expenseToEdit = expenses[index];
+        setNewExpense(expenseToEdit.title);
+        setNewInitialAmount(expenseToEdit.initialAmount.toString());
+        setNewAmountReduced(expenseToEdit.amountReduced.toString());
+        setNewDeductionDate(expenseToEdit.deductionDate);
+        setNewAnnualInterestRate(expenseToEdit.annualInterestRate.toString());
+    
+        // Set the edit index to the current index
         setEditIndex(index);
-        const { title, initialAmount, amountReduced, deductionDate, annualInterestRate } = expenses[index];
-        setNewExpense(title);
-        setNewInitialAmount(initialAmount);
-        setNewAmountReduced(amountReduced);
-        setNewDeductionDate(deductionDate);
-        setNewAnnualInterestRate(annualInterestRate);
+    
+        // Open the edit modal
+        setShowEditModal(true);
     };
+    
 
+    const cancelEdit = () => {
+        setShowEditModal(false);
+    }
+
+    // ExpenseTracker.js
     const saveExpense = () => {
         if (newExpense.trim() !== '') {
-            const updatedExpenses = [...expenses];
-            updatedExpenses[editIndex] = {
-                title: newExpense,
-                initialAmount: parseFloat(newInitialAmount),
-                amountReduced: parseFloat(newAmountReduced),
-                deductionDate: newDeductionDate,
-                annualInterestRate: parseFloat(newAnnualInterestRate),
-            };
-            saveExpensesToLocalStorage(updatedExpenses);
-
-            setExpenses(updatedExpenses);
-            setEditIndex(null);
-            // Clear form fields after saving
-            setNewExpense('');
-            setNewInitialAmount('');
-            setNewAmountReduced('');
-            setNewDeductionDate('');
-            setNewAnnualInterestRate('');
-            setFlashMessage({ type: 'info', message: 'Changes saved successfully.' });
+        const updatedExpenses = [...expenses];
+        updatedExpenses[editIndex] = {
+            title: newExpense,
+            initialAmount: parseFloat(newInitialAmount),
+            amountReduced: parseFloat(newAmountReduced),
+            deductionDate: newDeductionDate,
+            annualInterestRate: parseFloat(newAnnualInterestRate),
+        };
+        setExpenses(updatedExpenses);
+        setEditIndex(null);
+        setFlashMessage({ type: 'info', message: 'Changes saved successfully.' });
+        setTimeout(() => {
+            setFlashMessage(null);
+        }, 1500);
             clearForm();
-            setTimeout(() => setFlashMessage(null), 1500);
         } else {
-            setFlashMessage({ type: 'error', message: 'Please fill in the expense title.' });
+            setFlashMessage({ type: 'error', message: 'Please fill in the required fields.' });
+            setTimeout(() => {
+                setFlashMessage(null);
+            }, 1500);
         }
     };
-
-    const saveExpensesToLocalStorage = (expenses) => {
-        // Save expenses to local storage
-        localStorage.setItem('expenses', JSON.stringify(expenses));
-    };
+  
 
     const deleteExpense = (index) => {
         setShowDeleteModal(true);
@@ -191,7 +194,7 @@ const ExpenseTracker = () => {
         setExpenses(updatedExpenses);
         setEditIndex(null);
         setShowDeleteModal(false);
-        setFlashMessage({ type: 'info', message: 'Expense deleted successfully.' });
+        setFlashMessage({ type: 'success', message: 'Expense deleted successfully.' });
         setTimeout(() => setFlashMessage(null), 1500);
     };
 
@@ -226,34 +229,50 @@ const ExpenseTracker = () => {
     return (
         <div>
           <h2 className="text-xl font-semibold mb-4">Loan Repayments Tracker</h2>
-          <Form
-            newExpense={newExpense}
-            newInitialAmount={newInitialAmount}
-            newAmountReduced={newAmountReduced}
-            newDeductionDate={newDeductionDate}
-            newAnnualInterestRate={newAnnualInterestRate}
-            handleInputChange={handleInputChange}
-            addExpense={addExpense}
-            clearForm={clearForm}
-            saveExpense={saveExpense}
-            isSaveDisabled={isSaveDisabled}
-            isClearDisabled={isClearDisabled}
-            isAddExpenseDisabled={isAddExpenseDisabled}
-            validation={validation}
-            handleSubmit={handleSubmit}
-          />
-          <Table
-            expenses={expenses}
-            calculateRemainingAmount={calculateRemainingAmount}
-            editExpense={editExpense}
-            deleteExpense={deleteExpense}
-          />
-          <FlashMessage flashMessage={flashMessage} />
-          <DeleteModal
-            showDeleteModal={showDeleteModal}
-            confirmDelete={confirmDelete}
-            cancelDelete={cancelDelete}
-          />
+            <Form
+                newExpense={newExpense}
+                newInitialAmount={newInitialAmount}
+                newAmountReduced={newAmountReduced}
+                newDeductionDate={newDeductionDate}
+                newAnnualInterestRate={newAnnualInterestRate}
+                handleInputChange={handleInputChange}
+                addExpense={addExpense}
+                clearForm={clearForm}
+                saveExpense={saveExpense}
+                isSaveDisabled={isSaveDisabled}
+                isClearDisabled={isClearDisabled}
+                isAddExpenseDisabled={isAddExpenseDisabled}
+                validation={validation}
+                handleSubmit={handleSubmit}
+            />
+            <Table
+                expenses={expenses}
+                calculateRemainingAmount={calculateRemainingAmount}
+                openEditModal={openEditModal}
+                deleteExpense={deleteExpense}
+            />
+            {showEditModal && (
+                <EditModal
+                newExpense={newExpense}
+                newInitialAmount={newInitialAmount}
+                newAmountReduced={newAmountReduced}
+                newDeductionDate={newDeductionDate}
+                newAnnualInterestRate={newAnnualInterestRate}
+                handleInputChange={handleInputChange}
+                saveExpense={saveExpense}
+                clearForm={clearForm}
+                cancelEdit={cancelEdit}
+                isSaveDisabled={isSaveDisabled}
+                validation={validation}
+                handleSubmit={handleSubmit}
+                />
+            )}
+            <FlashMessage flashMessage={flashMessage} />
+            <DeleteModal
+                showDeleteModal={showDeleteModal}
+                confirmDelete={confirmDelete}
+                cancelDelete={cancelDelete}
+            />
         </div>
     );
 };

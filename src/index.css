@@ -1,9 +1,33 @@
 @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@600&family=Quicksand&display=swap');
 
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
 body {
     font-family: 'Quicksand', 'Outfit', monospace, sans-serif;
 }
 
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+::-webkit-scrollbar {
+    background-color: #d7d7d7;
+    border-radius: 30px;
+    width: 6px;
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: blueviolet;
+    border-radius: 30px;
+}
+
+input[type="text"]::placeholder,
+input[type="number"]::placeholder {
+    position: absolute;
+    transform: translateX(-0%);
+    will-change: transform;
+    transition: transform .200s ease-in-out;
+}
+
+input[type="text"]:focus::placeholder,
+input[type="number"]:focus::placeholder {
+    transform: translateX(-150%);
+}

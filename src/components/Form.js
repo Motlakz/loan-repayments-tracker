@@ -9,8 +9,6 @@ const Form = ({
   handleInputChange,
   addExpense,
   clearForm,
-  saveExpense,
-  isSaveDisabled,
   isClearDisabled,
   isAddExpenseDisabled,
   validation,
@@ -23,7 +21,7 @@ const Form = ({
     >
       <input
         type="text"
-        className={`border rounded-md focus:outline-gray-300 p-2 ${
+        className={`border rounded-md focus:outline-gray-300 animate__animated animate__bounceInLeft p-2 ${
           !validation.expense ? "border-red-500" : ""
         }`}
         placeholder="Expense Title"
@@ -32,7 +30,7 @@ const Form = ({
       />
       <input
         type="number"
-        className={`border rounded-md focus:outline-gray-300 p-2 ${
+        className={`border rounded-md focus:outline-gray-300 animate__animated animate__bounceInLeft p-2 ${
           !validation.initialAmount ? "border-red-500" : ""
         }`}
         placeholder="Initial Amount"
@@ -41,7 +39,7 @@ const Form = ({
       />
       <input
         type="number"
-        className={`border rounded-md focus:outline-gray-300 p-2 ${
+        className={`border rounded-md focus:outline-gray-300animate__animated animate__bounceInRight p-2 ${
           !validation.amountReduced ? "border-red-500" : ""
         }`}
         placeholder="Amount Deducted Monthly"
@@ -50,7 +48,7 @@ const Form = ({
       />
       <input
         type="date"
-        className={`border rounded-md focus:outline-gray-300 text-gray-400 uppercase p-2 ${
+        className={`border rounded-md focus:outline-gray-300 animate__animated animate__bounceInRight text-gray-400 uppercase p-2 ${
           !validation.deductionDate ? "border-red-500" : ""
         }`}
         placeholder="Deduction Date"
@@ -59,7 +57,7 @@ const Form = ({
       />
       <input
         type="number"
-        className={`border rounded-md focus:outline-gray-300 p-2 ${
+        className={`border rounded-md focus:outline-gray-300 animate__animated animate__bounceInLeft  p-2 ${
           !validation.annualInterestRate ? "border-red-500" : ""
         }`}
         placeholder="Annual Interest Rate (%)"
@@ -69,7 +67,7 @@ const Form = ({
         }
       />
       <button
-        className={`bg-purple-500 rounded-md hover:bg-purple-700 hover:text-pink-100 text-white px-4 py-2 ${
+        className={`bg-purple-500 animate__animated animate__backInUp rounded-md hover:bg-purple-700 hover:text-pink-100 text-white px-4 py-2 ${
           isAddExpenseDisabled
             ? "cursor-not-allowed opacity-50 hover:bg-purple-500 hover:text-pink-100 hover:bg-opacity-50"
             : ""
@@ -80,7 +78,7 @@ const Form = ({
         Add Expense
       </button>
       <button
-        className={`bg-purple-200 rounded-md text-purple-600 hover:bg-pink-100 hover:text-pink-700 px-4 py-2 ${
+        className={`bg-purple-200 rounded-md text-purple-600 animate__animated animate__backInUp hover:bg-pink-100 hover:text-pink-700 px-4 py-2 ${
           isClearDisabled
             ? "cursor-not-allowed opacity-50 hover:bg-purple-200 hover:text-purple-600 hover:bg-opacity-50"
             : ""
@@ -89,15 +87,6 @@ const Form = ({
         disabled={isClearDisabled}
       >
         Clear Form
-      </button>
-      <button
-        className={`bg-teal-500 rounded-md hover:bg-teal-700 hover:text-pink-200 text-white px-4 py-2 ${
-          isSaveDisabled ? "cursor-not-allowed opacity-50 hover:bg-opacity-60 hover:text-white" : ""
-        }`}
-        onClick={saveExpense}
-        disabled={isSaveDisabled}
-      >
-        Save Changes
       </button>
     </form>
   );
