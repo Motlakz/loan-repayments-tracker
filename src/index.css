@@ -19,6 +19,15 @@ body {
     border-radius: 30px;
 }
 
+li span {
+    display: none;
+}
+
+form input:focus {
+    outline: none !important;
+    border: 1.5px solid rgb(169, 109, 225) !important;
+}
+
 input[type="text"]::placeholder,
 input[type="number"]::placeholder {
     position: absolute;
@@ -30,4 +39,164 @@ input[type="number"]::placeholder {
 input[type="text"]:focus::placeholder,
 input[type="number"]:focus::placeholder {
     transform: translateX(-150%);
+}
+
+.nav-toggler {
+    display: none;
+    height: 40px;
+}
+.nav-toggler span,
+.nav-toggler span:before,
+.nav-toggler span:after {
+    width: 28px;
+    height: 3px;
+    background-color: blueviolet;
+    display: block;
+    transition: .3s;
+}
+
+.nav-toggler span:before {
+    content: '';
+    transform: translateY(-9px);
+}
+
+.nav-toggler span:after {
+    content: '';
+    transform: translateY(6px);
+}
+
+.nav-toggler.toggler-open span {
+    background-color: transparent;
+}
+
+.nav-toggler.toggler-open span:before {
+    transform: translateY(0px) rotate(45deg);
+}
+
+.nav-toggler.toggler-open span:after {
+    transform: translateY(-3px) rotate(-45deg);
+}
+
+@media (width <= 800px) {
+    nav {
+        flex-direction: column;
+        font-size: medium;
+    }
+
+    .logo img {
+        height: 60px;
+    }
+}
+@media (width <=  675px) {
+    .nav-toggler {
+        display: block;
+        margin: 10px;
+        padding: 4px;
+    }
+
+    nav {
+        flex-direction: unset;
+        position: sticky;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100px;
+        z-index: 100;
+    }
+
+    nav .navmenu {
+        position: absolute;
+        width: 60%;
+        flex-direction: column;
+        justify-content: center;
+        gap: 0;
+        height: calc(100vh - 100px);
+        left: -100%;
+        font-weight: bolder;
+        top: 90px;
+        background-color: rgb(103,5,249);
+        border-radius: 8px;
+        max-height: 0;
+        overflow: hidden;
+        transition: left 0.4s; /* Change the property to transition "left" property */
+    }
+
+    nav .navmenu.open {
+        animation: .8s slow ease-in;
+        left: 0;
+        max-height: 300px;
+        overflow: visible;
+    }
+
+    nav .navmenu.close {
+        left: -100%;
+    }
+
+    nav .navmenu li {
+        display: flex;
+        justify-content: space-between;
+        border-radius: 4px;
+        width: 100%;
+        text-align: center;
+        padding: 10px;
+        margin-left: 0 !important;
+    }
+
+    nav .navmenu li span {
+        color: #fff;
+        display: block;
+    }
+
+    nav .navmenu li:hover {
+        text-shadow: 1px 1px 1px #000;
+    }
+
+    #dropdownDefaultButton {
+        display: flex;
+        justify-content: space-between;
+        width: 90%;
+        margin: 10px;
+    }
+
+    .dropdown {
+        width: 90%;
+    }
+}
+
+@media (width <= 320px) {
+    body,
+    form input,
+    form input::placeholder,
+    form input[type=date] {
+        font-size: small !important;
+    }
+
+    form input::placeholder {
+        padding-top: 4px;
+    }
+
+    nav .navmenu {
+        padding: 15px;
+    }
+
+    nav .navmenu.open {
+        max-height: 280px;
+    }
+
+    #dropdownDefaultButton {
+        width: 100%;
+        margin: 0;
+    }
+}
+
+@keyframes slow {
+    0% {
+        transform: rotate(0deg);
+        opacity: 0;
+    }
+
+    100% {
+        transform: rotate(0deg);
+        opacity: 1;
+    }
 }

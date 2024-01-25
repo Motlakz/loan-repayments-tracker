@@ -68,7 +68,7 @@ const Table = ({ expenses, calculateRemainingAmount, openEditModal, deleteExpens
                                     type="file"
                                     name={`file-0`}
                                     id={`file-0`}
-                                    className="custom-file-input border"
+                                    className="custom-file-input border w-64"
                                     onChange={(event) => handleFileChange(0, event)}
                                 />
                             </div>
@@ -116,7 +116,7 @@ const Table = ({ expenses, calculateRemainingAmount, openEditModal, deleteExpens
                                     type="file"
                                     name={`file-${index + 1}`}
                                     id={`file-${index + 1}`}
-                                    className="custom-file-input cursor-pointer border"
+                                    className="custom-file-input cursor-pointer border w-64"
                                     onChange={(event) => handleFileChange(index + 1, event)}
                                 />
                                 </div>

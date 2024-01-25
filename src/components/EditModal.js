@@ -19,7 +19,7 @@ const EditModal = ({
         <div className="modal fixed inset-0 flex items-center justify-center bg-black bg-opacity-50">
             <div className="modal-content bg-white rounded-lg p-6">
                 <button className="close float-right hover:text-purple-400 text-purple-600" onClick={cancelEdit}>
-                    <i class="bi bi-x-square"></i>
+                    <i className="bi bi-x-square"></i>
                 </button>
                 <h2 className="mb-4 mt-4 text-lg font-bold">Edit Expense</h2>
                 <form
