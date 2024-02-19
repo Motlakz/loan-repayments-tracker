@@ -5,7 +5,7 @@ import FlashMessage from "./FlashMessage";
 import DeleteModal from "./DeleteModal";
 import EditModal from "./EditModal";
 
-const ExpenseTracker = () => {
+const RepaymentsTracker = () => {
     const [showEditModal, setShowEditModal] = useState(false);
     const [expenses, setExpenses] = useState(() => {
         // Retrieve expenses from localStorage on component mount
@@ -155,7 +155,7 @@ const ExpenseTracker = () => {
         setShowEditModal(false);
     }
 
-    // ExpenseTracker.js
+    // RepaymentsTracker.js
     const saveExpense = () => {
         if (newExpense.trim() !== '') {
         const updatedExpenses = [...expenses];
@@ -227,7 +227,7 @@ const ExpenseTracker = () => {
     const isAddExpenseDisabled = editIndex !== null;
 
     return (
-        <div>
+        <main className="container max-w-screen-lg overflow-x-hidden m-4 bg-white text-[#181028] p-8 shadow-lg rounded-lg">
           <h2 className="text-xl font-semibold mb-4">Loan Repayments Tracker</h2>
             <Form
                 newExpense={newExpense}
@@ -273,8 +273,8 @@ const ExpenseTracker = () => {
                 confirmDelete={confirmDelete}
                 cancelDelete={cancelDelete}
             />
-        </div>
+        </main>
     );
 };
 
-export default ExpenseTracker;
+export default RepaymentsTracker;
