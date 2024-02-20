@@ -8,15 +8,30 @@ body {
     font-family: 'Quicksand', 'Outfit', monospace, sans-serif;
 }
 
+:root {
+    --main-white: #fff;
+    --main-black: #000;
+    --lightgray: #d7d7d7;
+    --violet: blueviolet;
+}
+
 ::-webkit-scrollbar {
-    background-color: #d7d7d7;
+    background-color: var(--lightgray);
     border-radius: 30px;
     width: 6px;
 }
 
 ::-webkit-scrollbar-thumb {
-    background-color: blueviolet;
+    background-color: var(--violet);
     border-radius: 30px;
+}
+
+header {
+    background-image: url("./assets/financial-management-tech.jpg");
+    background-position: center;
+    position: relative;
+    text-shadow: .5px .5px .5px var(--main-black);
+    width: 100%;
 }
 
 li span {
