@@ -13,7 +13,7 @@ import CurrencyConverter from './components/CurrencyConverter';
 
 function App() {
   return (
-    <div className="bg-purple-100 flex flex-col justify-center items-center min-h-screen">
+    <div className="bg-pink-100 flex flex-col justify-center items-center min-h-screen">
       <Router>
         <header className='w-full'>
           <Navbar />

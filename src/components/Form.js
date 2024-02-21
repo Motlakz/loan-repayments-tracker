@@ -67,9 +67,9 @@ const Form = ({
         }
       />
       <button
-        className={`bg-purple-500 animate__animated animate__backInUp rounded-md hover:bg-purple-700 hover:text-pink-100 text-white px-4 py-2 ${
+        className={`bg-purple-500 animate__animated animate__backInUp rounded-md hover:bg-purple-700 hover:text-purple-100 text-white px-4 py-2 ${
           isAddExpenseDisabled
-            ? "cursor-not-allowed opacity-50 hover:bg-purple-500 hover:text-pink-100 hover:bg-opacity-50"
+            ? "cursor-not-allowed opacity-50 hover:bg-purple-500 hover:text-purple-100 hover:bg-opacity-50"
             : ""
         }`}
         onClick={addExpense}
@@ -78,7 +78,7 @@ const Form = ({
         Add Expense
       </button>
       <button
-        className={`bg-purple-200 rounded-md text-purple-600 animate__animated animate__backInUp hover:bg-pink-100 hover:text-pink-700 px-4 py-2 ${
+        className={`bg-purple-200 rounded-md text-purple-600 animate__animated animate__backInUp hover:bg-purple-100 hover:text-purple-700 px-4 py-2 ${
           isClearDisabled
             ? "cursor-not-allowed opacity-50 hover:bg-purple-200 hover:text-purple-600 hover:bg-opacity-50"
             : ""

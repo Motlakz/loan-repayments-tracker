@@ -105,7 +105,7 @@ const Table = ({ expenses, calculateRemainingAmount, openEditModal, deleteExpens
                                 </button>
                                 <button
                                     onClick={() => deleteExpense(index)}
-                                    className="bg-red-500 hover:bg-red-600 hover:text-pink-200 text-white px-2 py-1 w-full"
+                                    className="bg-red-500 hover:bg-red-600 hover:text-purple-200 text-white px-2 py-1 w-full"
                                 >
                                     Remove
                                 </button>

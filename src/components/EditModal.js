@@ -18,7 +18,7 @@ const EditModal = ({
     return (
         <div className="modal fixed inset-0 flex items-center justify-center bg-black bg-opacity-50">
             <div className="modal-content bg-white rounded-lg p-6">
-                <button className="close float-right hover:text-purple-400 text-purple-600" onClick={cancelEdit}>
+                <button className="close float-right hover:text-pink-400 text-pink-600" onClick={cancelEdit}>
                     <i className="bi bi-x-square"></i>
                 </button>
                 <h2 className="mb-4 mt-4 text-lg font-bold">Edit Expense</h2>
@@ -81,9 +81,9 @@ const EditModal = ({
 
                     <button
                         type="submit"
-                        className={`bg-purple-500 animate__animated animate__backInUp rounded-md hover:bg-purple-700 hover:text-pink-100 text-white px-4 py-2 ${
+                        className={`bg-pink-500 animate__animated animate__backInUp rounded-md hover:bg-pink-700 hover:text-pink-100 text-white px-4 py-2 ${
                         isSaveDisabled
-                            ? "cursor-not-allowed opacity-50 hover:bg-purple-500 hover:text-pink-100 hover:bg-opacity-50"
+                            ? "cursor-not-allowed opacity-50 hover:bg-pink-500 hover:text-pink-100 hover:bg-opacity-50"
                             : ""
                         }`}
                         disabled={isSaveDisabled}
@@ -91,9 +91,9 @@ const EditModal = ({
                         Save Changes
                     </button>
                     <button
-                        className={`bg-purple-200 rounded-md text-purple-600 animate__animated animate__backInUp hover:bg-pink-100 hover:text-pink-700 px-4 py-2 ${
+                        className={`bg-pink-200 rounded-md text-pink-600 animate__animated animate__backInUp hover:bg-pink-100 hover:text-pink-700 px-4 py-2 ${
                         isClearDisabled
-                            ? "cursor-not-allowed opacity-50 hover:bg-purple-200 hover:text-purple-600 hover:bg-opacity-50"
+                            ? "cursor-not-allowed opacity-50 hover:bg-pink-200 hover:text-pink-600 hover:bg-opacity-50"
                             : ""
                         }`}
                         onClick={clearForm}
