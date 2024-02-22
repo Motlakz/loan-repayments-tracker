@@ -1,4 +1,3 @@
-import './App.css';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import Navbar from './components/Navbar';
 import Home from './components/HomePage';
@@ -13,7 +12,7 @@ import CurrencyConverter from './components/CurrencyConverter';
 
 function App() {
   return (
-    <div className="bg-pink-100 flex flex-col justify-center items-center min-h-screen">
+    <div className="bg-purple-100 flex flex-col justify-center items-center min-h-screen">
       <Router>
         <header className='w-full'>
           <Navbar />

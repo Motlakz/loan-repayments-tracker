@@ -95,12 +95,99 @@ input[type="number"]:focus::placeholder {
     transform: translateY(-3px) rotate(-45deg);
 }
 
+.cards .card {
+    background: linear-gradient(to bottom, transparent 50%, rgb(165 243 252) 10%);
+    background-size: 100% 200%;
+    box-shadow: rgba(142, 10, 218, 0.15) 3px 3px 5px;
+    transition: background-position 0.3s ease;
+}
+
+.cards .card:hover {
+    background-position: 0 -100%;
+    color: var(--violet);
+    font-weight: 600;
+}
+
+.animation {
+    box-shadow: var(--violet) -5px 5px, rgb(192 132 252) -10px 10px, rgb(216 180 254) -15px 15px;
+    border-radius: 30px;
+    background: linear-gradient(to right, rgb(222, 194, 252) 50%, rgb(192 132 252) 10%);
+    background-size: 200% 100%;
+    transition: all 0.3s ease-in-out;
+    max-width: 500px;
+    width: 100%;
+}
+
+.animation:hover {
+    box-shadow: rgb(216 180 254) -5px 5px, rgb(192 132 252) -10px 10px, var(--violet) -15px 15px;
+    background-position: -100% 0;
+    color: var(--main-white);
+    font-weight: 600;
+}
+
+.animation:nth-child(2):hover,
+.animation:nth-child(4):hover {
+    box-shadow: rgb(216 180 254) 5px 5px, rgb(192 132 252) 10px 10px, var(--violet) 15px 15px;
+}
+
+.animation:nth-child(2),
+.animation:nth-child(4) {
+    box-shadow: var(--violet) 5px 5px, rgb(192 132 252) 10px 10px, rgb(216 180 254) 15px 15px;
+    border-top-left-radius: unset;
+    border-top-right-radius: unset;
+}
+
+.register article {
+    text-shadow: .5px .5px .5px var(--main-black);
+}
+
+.get-started {
+    box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
+    transition: all .4s ease;
+}
+
+.socials span.icon {
+    cursor: pointer;
+    transition: .3s ease-in-out;
+}
+
+.socials span.icon:hover {
+    transform: scale(0.9);
+}
+
 @media (width <= 1240px) {
     header {
         background-position: left;
         justify-content: center !important;
         text-align: center;
     }
+
+    .dropdowns {
+        flex-direction: column;
+        gap: 3px;
+        padding: 2px;
+    }
+
+    .animation {
+        border-radius: 30px !important;
+        max-width: 350px;
+        width: 100%;
+    }
+
+    .register div {
+        top: 10px;
+    }
+}
+
+@media (width <= 1024px) {
+    .details .content {
+        justify-content: space-around !important;
+        padding-top: 0 !important;
+    }
+
+    .animation {
+        max-width: 200px;  }
+
 }
 
 @media (width <= 865px) {
@@ -108,9 +195,15 @@ input[type="number"]:focus::placeholder {
         margin-top: 155px;
     }
     
+    .dropdowns {
+        flex-direction: unset;
+        gap: 8px;
+    }
+
     header article {
         background: rgba(0, 0, 0, 0.35);
         text-shadow: 1px 1px 1px var(--main-black);
+        width: 100%;
     }
 
     nav {
@@ -131,6 +224,52 @@ input[type="number"]:focus::placeholder {
 
     .logo img {
         height: 60px;
+    }
+
+    .cards .card figure img {
+        max-width: 80px;
+    }
+    .cards .card {
+        font-size: small;
+        flex-direction: column;
+        justify-content: center;
+        text-align: center;
+    }
+
+    .animation {
+        border-radius: unset;
+        max-width: 350px;
+    }
+
+    .details .content {
+        flex-direction: column;
+        gap: 32px;
+        text-align: center;
+    }
+
+    .details .content:nth-child(2),
+    .details .content:nth-child(4) {
+        flex-direction: column-reverse;
+    }
+
+    .register {
+        flex-direction: column-reverse;
+    }
+
+    .register div {
+        position: relative;
+    }
+}
+
+@media (width <= 768px) {
+    .cards {
+        grid-template-columns: repeat(2, 2fr);
+    }
+
+    .cards .card {
+        flex-direction: row;
+        justify-content: unset;
+        text-align: unset;
     }
 }
 
@@ -222,6 +361,17 @@ input[type="number"]:focus::placeholder {
   
     .dropdown {
       width: 100%;
+    }
+}
+
+@media (width <=  475px) {
+    .cards {
+        grid-template-columns: 1fr;
+    }
+
+    .dropdowns button {
+        font-size: small;
+        max-width: 130px;
     }
 }
 
