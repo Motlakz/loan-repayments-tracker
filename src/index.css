@@ -46,7 +46,9 @@ form input:focus {
 }
 
 input[type="text"]::placeholder,
-input[type="number"]::placeholder {
+input[type="number"]::placeholder,
+input[type="email"]::placeholder,
+input[type="password"]::placeholder {
     position: absolute;
     transform: translateX(-0%);
     will-change: transform;
@@ -54,7 +56,9 @@ input[type="number"]::placeholder {
 }
 
 input[type="text"]:focus::placeholder,
-input[type="number"]:focus::placeholder {
+input[type="number"]:focus::placeholder,
+input[type="email"]:focus::placeholder,
+input[type="password"]:focus::placeholder {
     transform: translateX(-150%);
 }
 
@@ -153,6 +157,18 @@ input[type="number"]:focus::placeholder {
 
 .socials span.icon:hover {
     transform: scale(0.9);
+}
+
+.about-page {
+    background-image: url("./assets/pink-purple-and-light-blue-abstract-wave-background-abstract-pink-wave-line-wave-texture-web-background-abstract-banner-design-for-business-finance-vector\ \(1\).jpg");
+}
+
+.images .first{
+    transform: rotate(-25deg);
+}
+
+.images .second {
+    transform: rotate(25deg);
 }
 
 @media (width <= 1240px) {
@@ -361,6 +377,10 @@ input[type="number"]:focus::placeholder {
   
     .dropdown {
       width: 100%;
+    }
+
+    .register-animation {
+        left: 0;
     }
 }
 
