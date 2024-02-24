@@ -27,7 +27,7 @@ body {
 }
 
 header {
-    background-image: url("./assets/financial-management-tech.jpg");
+    background-image: url("./assets/finance-bg.jpg");
     background-position: center;
     position: relative;
     text-shadow: .5px .5px .5px var(--main-black);
@@ -110,6 +110,10 @@ input[type="password"]:focus::placeholder {
     background-position: 0 -100%;
     color: var(--violet);
     font-weight: 600;
+}
+
+.slow {
+    animation: .5s slow ease-in;
 }
 
 .animation {
@@ -217,8 +221,8 @@ input[type="password"]:focus::placeholder {
     }
 
     header article {
-        background: rgba(0, 0, 0, 0.35);
-        text-shadow: 1px 1px 1px var(--main-black);
+        background: rgba(0, 0, 0, 0.17);
+        drop-shadow: 1px 1px 1px var(--main-black);
         width: 100%;
     }
 
@@ -235,7 +239,7 @@ input[type="password"]:focus::placeholder {
     .nav-toggler span,
     .nav-toggler span:before,
     .nav-toggler span:after {
-        background-color: cyan;
+        background-color: var(--violet);
     }
 
     .logo img {
@@ -294,10 +298,6 @@ input[type="password"]:focus::placeholder {
         margin-top: 100px;
     }
 
-    .logo {
-        display: none;
-    }
-
     .nav-toggler {
       display: block;
       margin: 10px;
@@ -332,12 +332,16 @@ input[type="password"]:focus::placeholder {
   
     nav .navmenu.open {
       left: 0;
-      max-height: 250px;
+      max-height: 220px;
       overflow: visible;
+    }
+
+    nav .navmenu.authenticated.open {
+        max-height: 300px;
     }
   
     nav .navmenu.close {
-      animation: slideOut 0.8s ease-out; /* Custom animation for closing */
+      animation: slideOut 0.8s ease-out;
       left: -100%;
       max-height: 0;
       overflow: hidden;

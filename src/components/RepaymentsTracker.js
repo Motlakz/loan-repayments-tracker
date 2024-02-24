@@ -155,7 +155,6 @@ const RepaymentsTracker = () => {
         setShowEditModal(false);
     }
 
-    // RepaymentsTracker.js
     const saveExpense = () => {
         if (newExpense.trim() !== '') {
         const updatedExpenses = [...expenses];
@@ -181,7 +180,6 @@ const RepaymentsTracker = () => {
         }
     };
   
-
     const deleteExpense = (index) => {
         setShowDeleteModal(true);
         setEditIndex(index);
@@ -211,13 +209,23 @@ const RepaymentsTracker = () => {
         setNewAnnualInterestRate('');
         setEditIndex(null);
     };
-   
-    const calculateRemainingAmount = (initialAmount, amountReduced, deductionDate, annualInterestRate) => {
-        const monthsRemaining = 12; // Assuming monthly deductions for 12 months
-        const totalDeduction = parseFloat(amountReduced) * monthsRemaining;
-        const remainingAfterDeduction = parseFloat(initialAmount) - totalDeduction;
-        const compoundInterest = (remainingAfterDeduction * (Math.pow(1 + annualInterestRate / 100, 1 / 12) - 1)).toFixed(2);
-        return (remainingAfterDeduction + parseFloat(compoundInterest)).toFixed(2);
+
+    const calculateRemainingAmount = (initialAmount, amountReduced, interestRate) => {
+        let remainingAmount = parseFloat(initialAmount);
+    
+        // Deduct the amount for the current month
+        remainingAmount -= parseFloat(amountReduced);
+    
+        // Check if 12 months have passed
+        if (remainingAmount > 0 && remainingAmount <= parseFloat(amountReduced)) {
+            // Calculate interest
+            const interest = remainingAmount * (interestRate / 100);
+            // Add interest to the remaining amount
+            remainingAmount += interest;
+        }
+    
+        // Return the remaining amount to the nearest decimal point
+        return remainingAmount.toFixed(2);
     };
 
     const isSaveDisabled = editIndex === null || newExpense.trim() === '';
