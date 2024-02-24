@@ -18,7 +18,7 @@ function App() {
     <div className="bg-purple-100 flex flex-col justify-center items-center min-h-screen">
       <Router>
         <header className='w-full'>
-          <Navbar isAuthenticated={true} />
+          <Navbar isAuthenticated={false} />
         </header>
         <Routes>
           <Route path="/home" element={<Home />} />
