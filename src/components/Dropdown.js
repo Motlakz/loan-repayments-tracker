@@ -14,7 +14,7 @@ const Dropdown = ({ buttonText, items, children }) => {
     <div className={`relative ${isOpen ? 'open' : ''}`}>
       <button
         onClick={toggleDropdown}
-        className={`text-white bg-transparent focus:outline-none font-medium rounded-lg px-5 py-2.5 text-center inline-flex items-center ${isHomePage ? 'dark:bg-purple-500 dark:hover:bg-purple-500 dark:focus:ring-purple-600' : 'dark:bg-cyan-500 dark:hover:bg-cyan-500 dark:focus:ring-cyan-600'} w-full min-w-44`}
+        className={`text-white font-medium rounded-lg px-5 py-2.5 text-center inline-flex items-center ${isHomePage ? 'dark:bg-purple-500 bg-purple-500 dark:hover:bg-purple-500 dark:focus:ring-purple-600' : 'dark:bg-cyan-500 bg-cyan-500 dark:hover:bg-cyan-500 dark:focus:ring-cyan-600'} w-full min-w-44`}
         type="button"
       >
         {buttonText} <span className="icon ml-2"><i className="bi bi-chevron-down"></i></span>
