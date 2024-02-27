@@ -13,6 +13,7 @@ body {
     --main-black: #000;
     --lightgray: #d7d7d7;
     --violet: blueviolet;
+    --pink: pink
 }
 
 ::-webkit-scrollbar {
@@ -32,6 +33,12 @@ header {
     position: relative;
     text-shadow: .5px .5px .5px var(--main-black);
     width: 100%;
+}
+
+header article p span {
+    background-color: rgb(157, 74, 235);
+    padding: 1px 4px;
+    border-radius: 4px;
 }
 
 li {
@@ -121,9 +128,11 @@ input[type="password"]:focus::placeholder {
     border-radius: 30px;
     background: linear-gradient(to right, rgb(222, 194, 252) 50%, rgb(192 132 252) 10%);
     background-size: 200% 100%;
+    position: relative;
     transition: all 0.3s ease-in-out;
     max-width: 500px;
     width: 100%;
+    padding-bottom: 48px;
 }
 
 .animation:hover {
@@ -141,8 +150,20 @@ input[type="password"]:focus::placeholder {
 .animation:nth-child(2),
 .animation:nth-child(4) {
     box-shadow: var(--violet) 5px 5px, rgb(192 132 252) 10px 10px, rgb(216 180 254) 15px 15px;
-    border-top-left-radius: unset;
-    border-top-right-radius: unset;
+    border-top-left-radius: unset !important;
+    border-top-right-radius: unset !important;
+}
+
+.animation figcaption {
+    background-color: rgb(192 132 252);
+    border: 2px solid rgb(192, 132, 252);
+    border-bottom-left-radius: 30px;
+    border-bottom-right-radius: 30px;
+    position: absolute;
+    bottom: 0;
+    padding: 8px;
+    max-width: 400px;
+    width: 100%;
 }
 
 .register article {
@@ -191,6 +212,7 @@ input[type="password"]:focus::placeholder {
     .animation {
         border-radius: 30px !important;
         max-width: 350px;
+        height: 280px;
         width: 100%;
     }
 
@@ -201,13 +223,13 @@ input[type="password"]:focus::placeholder {
 
 @media (width <= 1024px) {
     .details .content {
-        justify-content: space-around !important;
         padding-top: 0 !important;
+        gap: 28px;
     }
 
     .animation {
-        max-width: 200px;  }
-
+        height: 240px;
+    }
 }
 
 @media (width <= 865px) {
@@ -220,16 +242,37 @@ input[type="password"]:focus::placeholder {
         gap: 8px;
     }
 
+    header h1 {
+        font-size: xx-large !important;
+    }
+
     header article {
         background: rgba(0, 0, 0, 0.17);
-        drop-shadow: 1px 1px 1px var(--main-black);
         width: 100%;
+    }
+
+    header article p {
+        font-size: x-large !important;
+    }
+
+    nav .logo img,
+    footer img{
+        width: 60px;
+        height: 40px;
+    }
+
+    footer .socials img {
+        height: 20px;
+        width: 20px;
+    }
+
+    footer .copyright {
+        font-size: medium;
     }
 
     nav {
         flex-direction: column;
         font-size: medium;
-        padding-bottom: 10px;
     }
 
     nav .navmenu {
@@ -249,6 +292,7 @@ input[type="password"]:focus::placeholder {
     .cards .card figure img {
         max-width: 80px;
     }
+
     .cards .card {
         font-size: small;
         flex-direction: column;
@@ -257,27 +301,59 @@ input[type="password"]:focus::placeholder {
     }
 
     .animation {
-        border-radius: unset;
         max-width: 350px;
     }
 
-    .details .content {
-        flex-direction: column;
-        gap: 32px;
-        text-align: center;
-    }
-
-    .details .content:nth-child(2),
-    .details .content:nth-child(4) {
-        flex-direction: column-reverse;
+    .details .content article h2 {
+        font-size: larger;
+        line-height: 24px;
     }
 
     .register {
         flex-direction: column-reverse;
+        background-color: transparent;
+    }
+
+    .register article {
+        color: rgb(128, 249, 249);
+        background-color: rgb(172, 103, 238);
+        font-weight: 600;
+        width: 100%;
+    }
+
+    .register article button:hover {
+        background-color: rgb(128, 249, 249);
+        color: var(--violet);
     }
 
     .register div {
         position: relative;
+    }
+
+    .about-page section article h1,
+    .signup-form form legend {
+        font-size: x-large;
+    }
+
+    .about-page section article p {
+        font-size: large;
+    }
+
+    .about-page section article h2 {
+        font-size: larger;
+    }
+
+    .about-page section article:first-child figure img {
+        height: 60px;
+    }
+
+    .about-page section article:first-child {
+        padding-bottom: 10px;
+    }
+
+    .about-page section article figure img {
+        width: 80px;
+        height: 80px;
     }
 }
 
@@ -298,6 +374,15 @@ input[type="password"]:focus::placeholder {
         margin-top: 100px;
     }
 
+    header h1 {
+        font-size: x-large !important;
+    }
+
+    header article p {
+        color: #189AB4 !important;
+        font-size: large !important;
+    }
+
     .nav-toggler {
       display: block;
       margin: 10px;
@@ -310,7 +395,7 @@ input[type="password"]:focus::placeholder {
       top: 0;
       left: 0;
       width: 100%;
-      height: 100px;
+      height: 60px;
     }
   
     nav .navmenu {
@@ -319,10 +404,9 @@ input[type="password"]:focus::placeholder {
       flex-direction: column;
       justify-content: center;
       gap: 0;
-      height: calc(100vh - 100px);
       left: -100%;
       font-weight: bolder;
-      top: 90px;
+      top: 62px;
       background-color:#189AB4;
       border-radius: 8px;
       max-height: 0;
@@ -334,6 +418,10 @@ input[type="password"]:focus::placeholder {
       left: 0;
       max-height: 220px;
       overflow: visible;
+    }
+
+    nav .navmenu.open button {
+        margin-top: 15px;
     }
 
     nav .navmenu.authenticated.open {
@@ -383,12 +471,41 @@ input[type="password"]:focus::placeholder {
       width: 100%;
     }
 
+    .details .content article h2 {
+        font-size: large;
+    }
+
+    .details .content .animation figcaption {
+        font-size: small;
+    }
+
+    .details .content article p {
+        font-size: medium;
+    }
+
     .register-animation {
         left: 0;
     }
+
+    .about-page section article p {
+        font-size: medium;
+    }
+
+    .about-page section article h2 {
+        margin-bottom: 8px;
+    }
+
+    .about-page section article:first-child figure img {
+        height: 40px;
+    }
+
+    .about-page section article figure img {
+        width: 60px;
+        height: 60px;
+    }
 }
 
-@media (width <=  475px) {
+@media (width <=  500px) {
     .cards {
         grid-template-columns: 1fr;
     }
@@ -396,6 +513,19 @@ input[type="password"]:focus::placeholder {
     .dropdowns button {
         font-size: small;
         max-width: 130px;
+    }
+
+    .details .content {
+        flex-direction: column;
+    }
+
+    .details .content:nth-child(2),
+    .details .content:nth-child(4) {
+        flex-direction: column-reverse;
+    }
+
+    .register {
+        padding: 0;
     }
 }
 

@@ -18,7 +18,7 @@ function Footer() {
                     <img src={GitHubLogo} className="w-8 h-8" alt="GitHub logo" />
                 </span>
             </div>
-            <p class="copyright text-center text-purple-100 p-4">&copy; 2023 - 2024 RepaySmart. All Rights Reserved</p>
+            <p class="copyright flex flex-col text-center text-purple-100 p-4"><span>&copy; 2023 - 2024</span> RepaySmart. All Rights Reserved</p>
             <img src={logo} alt="repay smart logo" className='max-w-40 max-h-20' />
         </footer>
     )

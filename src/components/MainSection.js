@@ -52,7 +52,7 @@ function MainSection() {
         autoplay: true, 
         animationData: animationData,
         rendererSettings: {
-            preserveAspectRatio: 'xMidYMid slice'
+            preserveAspectRatio: 'xMidYMid slice'        
         }
     };
 
@@ -134,46 +134,42 @@ function MainSection() {
             <section className="details mt-16 rounded-2xl p-8 bg-purple-200">
                 <div className="content flex justify-around items-center pb-10">
                     <div className="animation border-2 border-purple-300 pb-4">
-                        {animationData ? <Lottie options={defaultOptions} className="lottie" height={isMobile ? 100 : window.innerWidth <= 1024 ? 200 : 400}
-                                width={isMobile ? 100 : window.innerWidth <= 1024 ? 200 : 400} /> : null}
+                    {animationData ? <Lottie options={{ ...defaultOptions, height: 400, width: 400 }} className="lottie" /> : null}
                         <figcaption className="p-2 font-medium">Adjust your savings by managing how much of them you keep</figcaption>
                     </div>
                     <article className="max-w-96 w-full text-purple-900">
-                        <h2 className="mb-4 font-bold text-2xl">Numbers don't have to be complicated</h2>
+                        <h2 className="mb-2 font-bold text-2xl">Numbers don't have to be complicated</h2>
                         <p>If you travel a lot and are worried your numbers won't match up, we have automated process you will be happy with.</p>
                     </article>
                 </div>
                 <div className="content flex justify-around items-center pb-10">
                     <article className="max-w-96 w-full text-purple-900">
-                        <h2 className="font-bold text-2xl mb-4">Have a solid financial plan to keep you on top of your game</h2>
+                        <h2 className="font-bold text-2xl mb-2">Have a solid financial plan to keep you on top of your game</h2>
                         <p>Keep track of all the money coming in and out of your accounts - bills, budget, and income.</p>
                     </article>
                     <div className="animation border-2 pb-4 border-purple-300">
-                        {animationData2 ? <Lottie options={defaultOptions2} className="lottie" height={isMobile ? 100 : window.innerWidth <= 1024 ? 200 : 400}
-                        width={isMobile ? 100 : window.innerWidth <= 1024 ? 200 : 400} /> : null}
+                    {animationData2 ? <Lottie options={{ ...defaultOptions2, height: 400, width: 400 }} className="lottie" /> : null}
                         <figcaption className="p-2 text-center">All-in-one solution, right at your fingertips.</figcaption>
                     </div>
                 </div>
                 <div className="content flex justify-around items-center pb-10">
                     <div className="animation pb-4 border-2 border-purple-300">
-                        {animationData3 ? <Lottie options={defaultOptions3} className="lottie" height={isMobile ? 100 : window.innerWidth <= 1024 ? 200 : 400}
-                        width={isMobile ? 100 : window.innerWidth <= 1024 ? 200 : 400} /> : null}
+                    {animationData3 ? <Lottie options={{ ...defaultOptions3, height: 400, width: 400 }} className="lottie" /> : null}
                         <figcaption className="p-2 text-center">Solid tracking systems</figcaption>
                     </div>
                     <article className="max-w-96 w-full text-purple-900">
-                        <h2 className="font-bold text-2xl mb-4">Need an organized way to manage your finances?</h2>
+                        <h2 className="font-bold text-2xl mb-2">Need an organized way to manage your finances?</h2>
                         <p>We provide an elaborate dashboard that tracks your income, your budget relative to your expenses, and your loans. All in one profile.</p>
                     </article>
                 </div>
                 <div className="content flex justify-around items-center">
                     <article className="max-w-96 w-full text-purple-900">
-                        <h2 className="font-bold text-2xl mb-4">Track your loan repayments with minimal effort</h2>
+                        <h2 className="font-bold text-2xl mb-2">Track your loan repayments with minimal effort</h2>
                         <p>Tired of waiting on reports and invoices to know what's left of what you owe? You no longer have to wait. Just use our loan calculator to show you your repayments from start to finish.</p>
                     </article>
                     <div className="animation border-2 border-purple-300 pb-4">
-                        {animationData4 ? <Lottie options={defaultOptions4} className="lottie" height={isMobile ? 100 : window.innerWidth <= 1024 ? 200 : 400}
-                                width={isMobile ? 100 : window.innerWidth <= 1024 ? 200 : 400} /> : null}
-                        <figcaption className="p-2 text-center">Stay on top of your spending habits</figcaption>
+                    {animationData4 ? <Lottie options={{ ...defaultOptions4, height: 400, width: 400 }} className="lottie" /> : null}
+                        <figcaption className="p-2 text-center">Stay atop your spending habits</figcaption>
                     </div>
                 </div>
             </section>

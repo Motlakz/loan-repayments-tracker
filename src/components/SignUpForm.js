@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
-import FinanceRoadMap from '../assets/financial-growth-map.jpg';
+import FinanceRoadMap from '../assets/money-bg.jpg';
+import ManagePic from '../assets/pngwing.com.png';
 import InputField from './InputField';
 
 const SignUpForm = () => {
@@ -56,6 +57,9 @@ const SignUpForm = () => {
                 Sign Up
                 </button>
                 <p>Take charge and fulfill your financial goals.</p>
+                <figure>
+                    <img src={ManagePic} alt="finance manage img" />
+                </figure>
             </form>
 
             <figure className="flex-1">

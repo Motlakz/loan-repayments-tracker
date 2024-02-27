@@ -11,6 +11,7 @@ import Income from './components/Income';
 import Budget from './components/Budget';
 import CurrencyConverter from './components/CurrencyConverter';
 import RepaymentsTracker from './components/RepaymentsTracker';
+import Footer from './components/Footer';
 
 function App() {
 
@@ -33,6 +34,7 @@ function App() {
           <Route path="/loan_tracker" element={<RepaymentsTracker />} />
           <Route path="*" element={<Home />} />
         </Routes>
+        <Footer />
       </Router>
     </div>
   );

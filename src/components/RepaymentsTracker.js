@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import Form from "./Form";
+import Form from "./RepaymentForm";
 import Table from "./Table";
 import FlashMessage from "./FlashMessage";
 import DeleteModal from "./DeleteModal";
