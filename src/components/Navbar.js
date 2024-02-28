@@ -2,11 +2,11 @@ import React, { useEffect, useRef } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import logo from '../repay-smart-logo.png';
 import Dropdown from './Dropdown';
+// import SignUpModal from './SignUpModal';
 
-const Navbar = ({ isAuthenticated }) => {
+const Navbar = ({ isAuthenticated, openSignUpModal, openSignInModal }) => {
   const location = useLocation();
   const isHomepage = location.pathname === '/home' || location.pathname === '/';
-
   const navTogglerRef = useRef(null);
   const navMenuRef = useRef(null);
   const navLinksRef = useRef([]);
@@ -40,6 +40,7 @@ const Navbar = ({ isAuthenticated }) => {
   }, [navTogglerRef, navMenuRef, navLinksRef]);
 
   return (
+    <>
     <nav className={`flex justify-between items-center absolute top-0 w-full z-10 pr-3 ${isHomepage ? 'bg-cyan-500' : 'bg-purple-500'}`}>
       <button type="button" className="nav-toggler" ref={navTogglerRef}>
         <span></span>
@@ -93,10 +94,16 @@ const Navbar = ({ isAuthenticated }) => {
               </button>
             ) : (
               <>
-                <button className="block rounded-md px-4 py-2 text-sm bg-purple-900 text-gray-200 hover:text-gray-700 hover:bg-purple-200 dark:hover:bg-purple-600 dark:text-gray-00 dark:hover:text-white group-hover:text-purple-500">
+                <button
+                  onClick={openSignUpModal}
+                  className="block rounded-md px-4 py-2 text-sm bg-purple-900 text-gray-200 hover:text-gray-700 hover:bg-purple-200 dark:hover:bg-purple-600 dark:text-gray-00 dark:hover:text-white group-hover:text-purple-500"
+                >
                   Sign Up
                 </button>
-                <button className="block rounded-md px-4 py-2 text-sm bg-gray-200 text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-700 dark:hover:text-white group-hover:text-purple-500">
+
+                <button 
+                  onClick={openSignInModal}
+                  className="block rounded-md px-4 py-2 text-sm bg-gray-200 text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-700 dark:hover:text-white group-hover:text-purple-500">
                   Sign In
                 </button>
               </>
@@ -104,19 +111,8 @@ const Navbar = ({ isAuthenticated }) => {
           </div>
         </Dropdown>
       </ul>
-
-      {isAuthenticated ? (
-        <Dropdown
-          buttonText="Expense Types"
-          items={[
-            { to: "/monthly_bills", label: "Monthly Bills" },
-            { to: "/income_track", label: "Income Track" },
-            { to: "/budget", label: "Budget Track" },
-            { to: "/loan_tracker", label: "Loan Tracker"}
-          ]}
-        />
-      ) : null}
     </nav>
+    </>
   );
 };
 

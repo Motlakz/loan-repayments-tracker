@@ -20,6 +20,7 @@ body {
     background-color: var(--lightgray);
     border-radius: 30px;
     width: 6px;
+    height: 3px;
 }
 
 ::-webkit-scrollbar-thumb {
@@ -35,16 +36,18 @@ header {
     width: 100%;
 }
 
-header article p span {
-    background-color: rgb(157, 74, 235);
-    padding: 1px 4px;
-    border-radius: 4px;
-}
-
 li {
     display: flex;
     align-items: center;
     gap: 10px;
+}
+
+form input {
+    border: 1px solid lightgray;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    padding: 8px;
+    margin-bottom: 10px;
 }
 
 form input:focus {
@@ -130,6 +133,7 @@ input[type="password"]:focus::placeholder {
     background-size: 200% 100%;
     position: relative;
     transition: all 0.3s ease-in-out;
+    height: 400px;
     max-width: 500px;
     width: 100%;
     padding-bottom: 48px;
@@ -162,7 +166,6 @@ input[type="password"]:focus::placeholder {
     position: absolute;
     bottom: 0;
     padding: 8px;
-    max-width: 400px;
     width: 100%;
 }
 
@@ -188,12 +191,31 @@ input[type="password"]:focus::placeholder {
     background-image: url("./assets/pink-purple-and-light-blue-abstract-wave-background-abstract-pink-wave-line-wave-texture-web-background-abstract-banner-design-for-business-finance-vector\ \(1\).jpg");
 }
 
+.signup-form figure.manage {
+    display: none;
+}
+
 .images .first{
     transform: rotate(-25deg);
 }
 
 .images .second {
     transform: rotate(25deg);
+}
+
+.modal.sign-in {
+    display: flex;
+}
+
+button {
+    transition: all .4s ease-in-out;
+}
+.slit-in-vr {
+    animation: .8s slit-in-vertical ease forwards;
+}
+
+.slit-out-hr {
+    animation: .8s slit-out-horizontal ease backwards;
 }
 
 @media (width <= 1240px) {
@@ -331,7 +353,8 @@ input[type="password"]:focus::placeholder {
     }
 
     .about-page section article h1,
-    .signup-form form legend {
+    .signup-form form legend,
+    .signin-form form legend {
         font-size: x-large;
     }
 
@@ -366,6 +389,46 @@ input[type="password"]:focus::placeholder {
         flex-direction: row;
         justify-content: unset;
         text-align: unset;
+    }
+
+    .modal {
+        max-width: 550px;
+        width: 100%;
+        border-radius: 30px;
+    }
+
+    form legend {
+        font-size: large !important;
+    }
+
+    form p {
+        font-size: medium !important;
+    }
+
+    .signup-form form,
+    .signin-form form {
+        position: relative;
+        overflow-y: auto;
+        max-height: 100vh;
+    }
+
+    .signup-form form {
+        padding-bottom: 30px;
+    }
+
+    .signup-form form::-webkit-scrollbar,
+    .signin-form form::-webkit-scrollbar {
+        display: none;
+    }
+
+    .signup-form figure.manage,
+    .signin-form figure.manage {
+        display: flex;
+    }
+
+    .signin-form figure.flex-1,
+    .signup-form figure.flex-1 {
+        display: none;
     }
 }
 
@@ -553,6 +616,41 @@ input[type="password"]:focus::placeholder {
     #dropdownDefaultButton {
         width: 100%;
         margin: 0;
+    }
+}
+
+@keyframes slit-in-vertical {
+    0% {
+      -webkit-transform: translateZ(-800px) rotateY(90deg);
+              transform: translateZ(-800px) rotateY(90deg);
+      opacity: 0;
+    }
+    54% {
+      -webkit-transform: translateZ(-160px) rotateY(87deg);
+              transform: translateZ(-160px) rotateY(87deg);
+      opacity: 1;
+    }
+    100% {
+      -webkit-transform: translateZ(0) rotateY(0);
+              transform: translateZ(0) rotateY(0);
+    }
+}
+
+@keyframes slit-out-horizontal {
+    0% {
+      -webkit-transform: translateZ(0) rotateX(0);
+              transform: translateZ(0) rotateX(0);
+      opacity: 1;
+    }
+    54% {
+      -webkit-transform: translateZ(-160px) rotateX(87deg);
+              transform: translateZ(-160px) rotateX(87deg);
+      opacity: 1;
+    }
+    100% {
+      -webkit-transform: translateZ(-800px) rotateX(90deg);
+              transform: translateZ(-800px) rotateX(90deg);
+      opacity: 0;
     }
 }
 

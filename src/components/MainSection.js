@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import SignUpModal from "./SignUpModal";
 import LoanTrackImg from "../assets/mortgage-loan-mortgage-svgrepo-com.svg";
 import AlertIcon from "../assets/notification-svgrepo-com.svg";
 import PlanSvg from "../assets/plan-svgrepo-com.svg";
@@ -12,6 +13,15 @@ function MainSection() {
     const [animationData4, setAnimationData4] = useState(null);
     const [animationData5, setAnimationData5] = useState(null);
     const [isMobile, setIsMobile] = useState(window.innerWidth <= 768);
+    const [isModalOpen, setModalOpen] = useState(false);
+
+    const openSignUpModal = () => {
+        setModalOpen(true);
+    };
+
+    const closeSignUpModal = () => {
+        setModalOpen(false);
+    };
 
     useEffect(() => {
         const handleResize = () => {
@@ -177,12 +187,13 @@ function MainSection() {
                 <article className="text-cyan-200 rounded-2xl bg-black bg-opacity-20 p-8">
                     <p>LET'S START TODAY</p>
                     <h2 className="font-bold text-lg mb-4 mt-4 max-w-96 w-full">Manage your money in the best way with RepaySmart. Give yourself a chance at financial freedom.</h2>
-                    <button className="get-started bg-white text-purple-900 hover:bg-cyan-600 w-full hover:text-purple-100 p-3 rounded-lg">Get Started</button>
+                    <button className="get-started bg-white text-purple-900 hover:bg-cyan-600 w-full hover:text-purple-100 p-3 rounded-lg" onClick={openSignUpModal}>Get Started</button>
                 </article>
                 <div className="register-animation absolute left-20">
                     {animationData5 ? <Lottie options={defaultOptions5} className="lottie" height={isMobile ? 200 : 400} width={isMobile ? 200 : 400} /> : null}
                 </div>
             </section>
+            {isModalOpen && <SignUpModal onClose={closeSignUpModal} />}
         </section>
     )
 }

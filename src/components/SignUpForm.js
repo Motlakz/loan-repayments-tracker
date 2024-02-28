@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 import FinanceRoadMap from '../assets/money-bg.jpg';
-import ManagePic from '../assets/pngwing.com.png';
 import InputField from './InputField';
+import FinanceManage from '../assets/pngwing.com.png';
 
 const SignUpForm = () => {
   const [formData, setFormData] = useState({
@@ -35,14 +36,15 @@ const SignUpForm = () => {
             return;
         }
 
-        // Add logic to handle form submission (e.g., API call)
         console.log('Form submitted:', formData);
     };
 
     return (
-        <div className="signup-form flex items-stretch">
-            <form onSubmit={handleSubmit} className="flex flex-col space-y-4 max-w-lg w-full p-8">
-                <legend className="text-3xl font-bold mb-6">Sign up today to unlock the full potential of Repay Smart.</legend>
+        <div className="signup-form flex items-stretch" style={{ maxHeight: '95vh' }}>
+            <form onSubmit={handleSubmit} className="flex-1 flex flex-col space-y-2 w-full text-purple-900 p-8" 
+                >
+                <legend className="text-2xl font-bold mb-2">Sign up today to unlock the full potential of Repay Smart.</legend>
+                <p className="text-lg mb-2">Take charge and fulfill your financial goals.</p>
 
                 <div className="grid grid-cols-2 space-x-4">
                     <InputField id="firstName" name="firstName" type="text" value={formData.firstName} onChange={handleChange} label="First Name" placeholder="Malcolm" />
@@ -53,17 +55,22 @@ const SignUpForm = () => {
                 <InputField id="password" name="password" type="password" value={formData.password} onChange={handleChange} label="Password" placeholder="**********" />
                 <InputField id="confirmPassword" name="confirmPassword" type="password" value={formData.confirmPassword} placeholder="**********" onChange={handleChange} label="Confirm Password" />
 
-                <button type="submit" className="bg-purple-600 text-white p-2 rounded-md hover:bg-purple-700">
-                Sign Up
+                
+                <button type="submit" className="w-full bg-purple-600 text-white p-2 rounded-md hover:bg-purple-700">
+                    Sign Up
                 </button>
-                <p>Take charge and fulfill your financial goals.</p>
-                <figure>
-                    <img src={ManagePic} alt="finance manage img" />
+
+                <p className="text-lg text-center text-purple-700 mt-2">
+                    Already have an account? <Link to="/signin" className="underline">Sign in here</Link>.
+                </p>
+                    
+                <figure className="manage flex items-center justify-center">
+                    <img src={FinanceManage} className='max-w-48 max-h-48 object-cover' alt="finance manage illustration" />
                 </figure>
             </form>
 
             <figure className="flex-1">
-                <img src={FinanceRoadMap} alt="Finance Roadmap" className="h-full object-cover rounded-r-2xl" />
+                <img src={FinanceRoadMap} alt="Finance Roadmap" className="h-full w-full object-cover rounded-r-md" />
             </figure>
         </div>
     );
