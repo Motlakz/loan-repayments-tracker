@@ -235,7 +235,7 @@ const RepaymentsTracker = () => {
     const isAddExpenseDisabled = editIndex !== null;
 
     return (
-        <main className="container max-w-screen-lg overflow-x-hidden mt-24 m-4 bg-white text-[#181028] p-8 shadow-lg rounded-lg">
+        <main className="max-w-full overflow-x-hidden mt-24 m-4 bg-white text-[#181028] p-8 shadow-lg rounded-lg">
           <h2 className="text-xl font-semibold mb-4">Loan Repayments Tracker</h2>
             <Form
                 newExpense={newExpense}

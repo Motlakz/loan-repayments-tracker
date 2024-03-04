@@ -14,6 +14,7 @@ import RepaymentsTracker from './components/RepaymentsTracker';
 import Footer from './components/Footer';
 import SignUpModal from './components/SignUpModal';
 import SignInModal from './components/SignInModal';
+import LandingPage from './components/LandingPage';
 
 function App() {
   const [isSignUpModalOpen, setIsSignUpModalOpen] = useState(false);
@@ -39,7 +40,7 @@ function App() {
     <div className="bg-purple-100 flex flex-col justify-center items-center min-h-screen">
       <Router>
         <header className='w-full'>
-          <Navbar isAuthenticated={false} openSignUpModal={openSignUpModal} openSignInModal={openSignInModal} />
+          <Navbar isAuthenticated={true} openSignUpModal={openSignUpModal} openSignInModal={openSignInModal} />
         </header>
 
         {isSignUpModalOpen && <SignUpModal onClose={closeSignUpModal} />}
@@ -56,6 +57,11 @@ function App() {
           <Route path="/budget" element={<Budget />} />
           <Route path="/currency_converter" element={<CurrencyConverter />} />
           <Route path="/loan_tracker" element={<RepaymentsTracker />} />
+          <Route path="/landing_page" element={<LandingPage />} />
+          <Route path="/blog" element={<Blog />} />
+          {/* <Route path="" />
+          <Route path="" />
+          <Route path="" /> */}
           <Route path="*" element={<Home />} />
         </Routes>
         <Footer />
