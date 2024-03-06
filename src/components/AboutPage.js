@@ -8,7 +8,7 @@ import SignUpForm from "./SignUpForm";
 
 function AboutPage() {
     return (
-        <div className="about-page p-6 flex flex-col items-center gap-6">
+        <div className="about-page bg-cover bg-no-repeat p-6 flex flex-col items-center gap-6">
             <section className="bg-purple-100 rounded-2xl p-10 mt-28 flex flex-col items-center justify-between gap-10 slow">
                 <article className="text-center pb-10">
                     <div className="images relative flex justify-between">

@@ -33,7 +33,7 @@ const Form = ({
         className={`border rounded-md focus:outline-gray-300 animate__animated animate__bounceInLeft p-2 ${
           !validation.initialAmount ? "border-red-500" : ""
         }`}
-        placeholder="Initial Amount"
+        placeholder="Current Amount"
         value={newInitialAmount}
         onChange={(e) => handleInputChange("initialAmount", e.target.value)}
       />

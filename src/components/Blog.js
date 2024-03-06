@@ -32,7 +32,7 @@ const BlogPage = () => {
   ];
 
   return (
-    <div className="p-4 mt-24 flex">
+    <div className="p-4 mt-16 flex">
       <div className="w-2/3 pr-4">
         <h1 className="text-4xl font-bold mb-4 text-cyan-700">Blog</h1>
         {articles.map((article, index) => (

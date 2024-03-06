@@ -19,7 +19,7 @@ function Header() {
                     <h1 className="text-5xl font-bold mb-6">Welcome to Repay Smart</h1>
                     <p className="max-w-2xl text-2xl text-cyan-600">Your all-in-one solution for effortless personal finance management. Take control of your finances and make informed decisions with <span className="text-cyan-500 font-semibold">Repay Smart</span>.</p>
                     <button className="bg-purple-500 hover:bg-purple-600 text-white p-2 rounded-md w-64 mt-6" onClick={openSignUpModal}>
-                        Get Started
+                        Let's Get Saving!
                     </button>
                 </article>
             </header>

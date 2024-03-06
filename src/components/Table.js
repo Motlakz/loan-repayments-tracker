@@ -37,7 +37,7 @@ const Table = ({ expenses, calculateRemainingAmount, openEditModal, deleteExpens
                 <thead>
                     <tr className="bg-purple-200">
                         <th className="border border-purple-500 p-2">Title</th>
-                        <th className="border border-purple-500 p-2">Initial Amount</th>
+                        <th className="border border-purple-500 p-2">Current Amount</th>
                         <th className="border border-purple-500 p-2">Amount Deducted per Month</th>
                         <th className="border border-purple-500 p-2">Deduction Date</th>
                         <th className="border border-purple-500 p-2">Annual Interest Rate (%)</th>

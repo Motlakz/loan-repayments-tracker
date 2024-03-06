@@ -1,6 +1,6 @@
 import React, { useEffect, useRef } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import logo from '../repay-smart-logo.png';
+import logo from '../repay-smart-logo.jpeg';
 import Dropdown from './Dropdown';
 
 const Navbar = ({ isAuthenticated, openSignUpModal, openSignInModal }) => {
@@ -54,13 +54,13 @@ const Navbar = ({ isAuthenticated, openSignUpModal, openSignInModal }) => {
 
   return (
     <>
-    <nav className={`flex justify-between items-center absolute top-0 w-full z-10 pr-3 ${isHomepage ? 'bg-cyan-500' : 'bg-purple-500'}`}>
+    <nav className={`flex justify-between items-center fixed top-0 w-full z-10 pr-3 ${isHomepage ? 'bg-cyan-500' : 'bg-purple-500'}`}>
       <button type="button" className="nav-toggler" ref={navTogglerRef}>
         <span></span>
       </button>
 
       <div className="logo">
-        <img src={logo} alt="repay smart logo" className='max-w-40 max-h-20' />
+        <img src={logo} alt="repay smart logo" className='max-w-24 max-h-16 rounded-full' />
       </div>
 
       <ul className={`navmenu flex items-center space-x-4 ${isAuthenticated ? 'authenticated' : ''}`} ref={navMenuRef}>
@@ -79,23 +79,23 @@ const Navbar = ({ isAuthenticated, openSignUpModal, openSignInModal }) => {
         </li>
 
         <Dropdown buttonText="Profile" items={profileMenuItems}>
-          <div className="py-2 flex justify-around">
+          <div className="flex justify-around">
             {isAuthenticated ? (
-              <button className="block rounded-md px-4 py-2 text-sm bg-purple-900 text-gray-200 hover:text-gray-700 hover:bg-purple-200 dark:hover:bg-purple-600 dark:text-gray-00 dark:hover:text-white group-hover:text-purple-500">
+              <button className="block w-full rounded-md px-4 py-2 text-sm bg-purple-900 text-gray-200 hover:text-gray-700 hover:bg-purple-200 dark:hover:bg-purple-600 dark:text-gray-00 dark:hover:text-white group-hover:text-purple-500">
                 Sign Out
               </button>
             ) : (
               <>
                 <button
                   onClick={openSignUpModal}
-                  className="block rounded-md px-4 py-2 text-sm bg-purple-900 text-gray-200 hover:text-gray-700 hover:bg-purple-200 dark:hover:bg-purple-600 dark:text-gray-00 dark:hover:text-white group-hover:text-purple-500"
+                  className="block w-full rounded-md px-4 py-2 text-sm bg-purple-900 text-gray-200 hover:text-gray-700 hover:bg-purple-200 dark:hover:bg-purple-600 dark:text-gray-00 dark:hover:text-white group-hover:text-purple-500"
                 >
                   Sign Up
                 </button>
 
                 <button
                   onClick={openSignInModal}
-                  className="block rounded-md px-4 py-2 text-sm bg-gray-200 text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-700 dark:hover:text-white group-hover:text-purple-500"
+                  className="block w-full rounded-md px-4 py-2 text-sm bg-gray-200 text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-700 dark:hover:text-white group-hover:text-purple-500"
                 >
                   Sign In
                 </button>

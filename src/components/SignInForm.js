@@ -37,8 +37,8 @@ const SignInForm = () => {
         <legend className="text-2xl font-bold">Sign in to Repay Smart</legend>
         <p className="text-lg">Welcome back! Sign in to access your account.</p>
 
-        <InputField id="email" name="email" type="email" value={formData.email} onChange={handleChange} label="Email" placeholder="email@example.com" autocomplete="on" />
-        <InputField id="password" name="password" type="password" value={formData.password} onChange={handleChange} label="Password" placeholder="**********" autocomplete="on" />
+        <InputField id="email" name="email" type="email" value={formData.email} onChange={handleChange} label="Email" placeholder="email@example.com" autoComplete="on" />
+        <InputField id="password" name="password" type="password" value={formData.password} onChange={handleChange} label="Password" placeholder="**********" autoComplete="on" />
 
         <div className="buttons">
           <button type="submit" className="w-full bg-cyan-600 text-white p-2 rounded-md hover:bg-cyan-700">

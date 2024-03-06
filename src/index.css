@@ -277,12 +277,6 @@ button {
         font-size: x-large !important;
     }
 
-    nav .logo img,
-    footer img{
-        width: 60px;
-        height: 40px;
-    }
-
     footer .socials img {
         height: 20px;
         width: 20px;

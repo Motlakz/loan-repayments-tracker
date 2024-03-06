@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 function Sidebar() {
   
     return (
-        <aside class="sidebar transition-all bg-purple-200 p-4 flex flex-col gap-12 justify-center">
+        <aside class="sidebar bg-purple-200 p-4 flex flex-col gap-12 justify-center">
             <Dropdown 
                 buttonText="Notifications"
                 items={[

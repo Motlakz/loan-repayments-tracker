@@ -57,13 +57,13 @@ const SignUpForm = () => {
                 <p className="text-lg mb-2">Take charge and fulfill your financial goals.</p>
 
                 <div className="grid grid-cols-2 space-x-4">
-                    <InputField id="firstName" name="firstName" type="text" value={formData.firstName} onChange={handleChange} label="First Name" placeholder="Malcolm" autocomplete="on" />
-                    <InputField id="lastName" name="lastName" type="text" value={formData.lastName} onChange={handleChange} label="Last Name" placeholder="Federo" autocomplete="on" />
+                    <InputField id="firstName" name="firstName" type="text" value={formData.firstName} onChange={handleChange} label="First Name" placeholder="Malcolm" autoComplete="on" />
+                    <InputField id="lastName" name="lastName" type="text" value={formData.lastName} onChange={handleChange} label="Last Name" placeholder="Federo" autoComplete="on" />
                 </div>
 
-                <InputField id="email" name="email" type="email" value={formData.email} onChange={handleChange} label="Email" placeholder="email@example.com" autocomplete="on" />
-                <InputField id="password" name="password" type="password" value={formData.password} onChange={handleChange} label="Password" placeholder="**********" autocomplete="on" />
-                <InputField id="confirmPassword" name="confirmPassword" type="password" value={formData.confirmPassword} placeholder="**********" onChange={handleChange} label="Confirm Password" autocomplete="on" />
+                <InputField id="email" name="email" type="email" value={formData.email} onChange={handleChange} label="Email" placeholder="email@example.com" autoComplete="on" />
+                <InputField id="password" name="password" type="password" value={formData.password} onChange={handleChange} label="Password" placeholder="**********" autoComplete="on" />
+                <InputField id="confirmPassword" name="confirmPassword" type="password" value={formData.confirmPassword} placeholder="**********" onChange={handleChange} label="Confirm Password" autoComplete="on" />
 
                 
                 <button type="submit" className="w-full bg-purple-600 text-white p-2 rounded-md hover:bg-purple-700"
