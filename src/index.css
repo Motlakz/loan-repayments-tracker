@@ -210,6 +210,83 @@ input[type="password"]:focus::placeholder {
 button {
     transition: all .4s ease-in-out;
 }
+
+footer {
+    z-index: 2;
+}
+
+.side-bar {
+    background: #1b1a1b;
+    backdrop-filter: blur(15px);
+    width: 250px;
+    height: 100%;
+    position: fixed;
+    top: 0;
+    left: -250px;
+    overflow-y: auto;
+    transition: 0.6s ease;
+    transition-property: left;
+    z-index: 1;
+}
+
+.side-bar::-webkit-scrollbar {
+    width: 0px;
+}
+
+.side-bar.active {
+    left: 0;
+}
+
+.side-bar .menu {
+    width: 100%;
+}
+
+.side-bar .menu .item {
+    position: relative;
+    cursor: pointer;
+}
+
+.side-bar .menu .item a {
+    color: #fff;
+    font-size: 16px;
+    text-decoration: none;
+    display: block;
+    padding: 5px 30px;
+    line-height: 60px;
+}
+
+.side-bar .menu .item a:hover {
+    transition: 0.3s ease;
+}
+
+.side-bar .menu .item i {
+    margin-right: 15px;
+}
+
+.side-bar .menu .item a .dropdown {
+    position: absolute;
+    right: 0;
+    margin: 20px;
+    transition: 0.3s ease;
+}
+
+.side-bar .menu .item .sub-menu {
+    background: #262627;
+    max-height: 0;
+    overflow: hidden;
+    opacity: 0;
+    transition: max-height 0.3s ease, opacity 0.3s ease;
+}
+
+.side-bar .menu .item.active .sub-menu {
+    max-height: 400px;
+    opacity: 1;
+}
+
+.rotate {
+    transform: rotate(90deg);
+}
+
 .slit-in-vr {
     animation: .8s slit-in-vertical ease forwards;
 }
@@ -223,12 +300,6 @@ button {
         background-position: left;
         justify-content: center !important;
         text-align: center;
-    }
-
-    .dropdowns {
-        flex-direction: column;
-        gap: 3px;
-        padding: 2px;
     }
 
     .animation {
@@ -257,11 +328,6 @@ button {
 @media (width <= 865px) {
     .container {
         margin-top: 155px;
-    }
-    
-    .dropdowns {
-        flex-direction: unset;
-        gap: 8px;
     }
 
     header h1 {
@@ -565,11 +631,6 @@ button {
 @media (width <=  500px) {
     .cards {
         grid-template-columns: 1fr;
-    }
-
-    .dropdowns button {
-        font-size: small;
-        max-width: 130px;
     }
 
     .details .content {

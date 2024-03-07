@@ -103,7 +103,7 @@ function MainSection() {
     };
 
     return (
-        <section className="mt-16 p-8">
+        <section className="mt-16 mb-24 p-8">
             <article>
                 <h2 className="text-3xl font-bold text-center mb-6">We provide the coolest services!</h2>
             </article>

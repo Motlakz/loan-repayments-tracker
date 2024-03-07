@@ -7,7 +7,7 @@ import GitHubLogo from '../assets/github.svg';
 function Footer() {
     return (
         <footer className="w-full bg-purple-900 flex items-center justify-between fixed bottom-0">
-            <div className="socials ml-3 flex gap-4 p-2 rounded-md bg-purple-50">
+            <div className="socials ml-3 flex gap-4 p-2 rounded-md bg-purple-50 text-medium">
                 <span className="icon">
                     <img src={TwitterLogo} className="w-8 h-8" alt="Twitter logo" />
                 </span>
